@@ -1,9 +1,9 @@
 div{
-    background-color:lightblue;
-    height: 2.75em;
+    background-color:rgb(151, 183, 214);
+    /*height: 2.75em;*/
 }
 
 app-social{
     float: right;
-    margin-top: 20 px;
+    /*margin-top: 20 px;*/
 }
