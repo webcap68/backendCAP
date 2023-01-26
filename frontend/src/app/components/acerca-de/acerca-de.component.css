@@ -3,7 +3,7 @@
         position: absolute;
          width: 85%; 
          border-radius: 100%;
-         box-shadow: 3px 3px 3px rgb(94, 93, 93);
+         box-shadow: 5px 5px 5px rgb(94, 93, 93);
          left: 3%;
          top: -60px;
     }
@@ -13,14 +13,15 @@
         position: relative;
          width: 40%; 
          border-radius: 100%;
-         box-shadow: 3px 3px 3px grey;
+         box-shadow: 5px 5px 5px grey;
          left: 3%;
          top: -40px;
     }
 }
 
 div{
-    background-color: rgb(198, 213, 228);
+    background-color:rgb(170, 208, 247);
+    /*background-color: rgb(198, 213, 228);*/
     text-align: center;
 
 }
