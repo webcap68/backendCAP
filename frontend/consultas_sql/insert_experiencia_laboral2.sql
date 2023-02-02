@@ -1,0 +1,1 @@
+insert into experiencia_laboral values (2,'PSG',1,'2021-8-29',null,'Delantero',2,2)

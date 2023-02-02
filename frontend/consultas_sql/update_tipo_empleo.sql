@@ -1,0 +1,1 @@
+update tipo_empleo SET nombre_tipo = 'Freelance/Emprendimiento' where id=3
