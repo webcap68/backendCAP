@@ -1,11 +1,23 @@
 @media (min-width: 576px){
     #fotodeperfil{
-        position: absolute;
+        /*position: absolute;*/
          width: 85%; 
          border-radius: 100%;
          box-shadow: 5px 5px 5px rgb(94, 93, 93);
-         left: 3%;
-         top: -60px;
+         /*left: 3%;
+         top: -60px;*/
+    }
+    .descripcion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nombreyapellido{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+        color: #0d6efd;
     }
 }
 @media (max-width: 575px){
@@ -17,6 +29,11 @@
          left: 3%;
          top: -40px;
     }
+    .botoneditar{
+        padding: 45px;
+        
+    }
+
 }
 
 div{

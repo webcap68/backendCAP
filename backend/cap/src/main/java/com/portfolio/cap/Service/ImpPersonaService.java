@@ -1,38 +1,61 @@
 
 package com.portfolio.cap.Service;
 
+
 import com.portfolio.cap.Entity.Persona;
-import com.portfolio.cap.Interface.IPersonaService;
 import com.portfolio.cap.Repository.IPersonaRepository;
 import java.util.List;
+import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ImpPersonaService implements IPersonaService {
+@Transactional
+public class ImpPersonaService  {
     
     @Autowired IPersonaRepository ipersonaRepository;
-
-    @Override
-    public List<Persona> getPersona() {
-        List<Persona> persona = ipersonaRepository.findAll();
-        return persona;
-    }
-
-    @Override
-    public void savePersona(Persona persona) {
-        ipersonaRepository.save(persona);
-    }
-
-    @Override
-    public void deletePersona(Long Id) {
-        ipersonaRepository.deleteById(Id);
-    }
-
-    @Override
-    public Persona findPersona(Long Id) {
-        Persona persona = ipersonaRepository.findById(Id).orElse(null);
-        return persona;
+     public List<Persona> list(){
+        return ipersonaRepository.findAll();
     }
     
+    public Optional<Persona> getOne(int id){
+        return ipersonaRepository.findById(id);
+    }
+    
+    public Optional<Persona> getByNombre(String nombre){
+        return ipersonaRepository.findByNombre(nombre);
+    }
+    
+    public Optional<Persona> getByApellido(String apellido){
+        return ipersonaRepository.findByApellido(apellido);
+    }
+    
+    public Optional<Persona> getByDescripcion(String descripcion){
+        return ipersonaRepository.findByDescripcion(descripcion);
+    }
+    
+    public void save(Persona persona){
+        ipersonaRepository.save(persona);
+    }
+    
+    public void delete(int id){
+        ipersonaRepository.deleteById(id);
+    }
+    
+    public boolean existsById(int id){
+        return ipersonaRepository.existsById(id);
+    }
+    
+    public boolean existsByNombre(String  nombre){
+        return ipersonaRepository.existsByNombre(nombre);
+    }
+    
+    public boolean existsByApellido(String  apellido){
+        return ipersonaRepository.existsByApellido(apellido);
+    }
+    
+    public boolean existsByDescripcion(String  descripcion){
+        return ipersonaRepository.existsByDescripcion(descripcion);
+    }
 }

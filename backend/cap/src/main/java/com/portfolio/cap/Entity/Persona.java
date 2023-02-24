@@ -7,16 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
+
+
 
 @Entity
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     
     @NotNull
     @Size(min = 1 , max = 50, message = "longitud insuficiente")
@@ -26,6 +25,62 @@ public class Persona {
     @Size(min = 1 , max = 50, message = "longitud insuficiente")
     private String apellido;
     
-    @Size(min = 1 , max = 50, message = "longitud insuficiente")
+     @NotNull
+   private String descripcion;
+    
+    
     private String url_foto;
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String descripcion, String url_foto) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.descripcion = descripcion;
+        this.url_foto = url_foto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getUrl_foto() {
+        return url_foto;
+    }
+
+    public void setUrl_foto(String url_foto) {
+        this.url_foto = url_foto;
+    }
+    
+    
 }
+

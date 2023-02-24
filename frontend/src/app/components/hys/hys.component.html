@@ -1,11 +1,21 @@
 <div class="row">
     <h1>Hard & Soft skills</h1>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
+    <div class="col-lg-2">
+        <button type="button" routerLink="/newskill" class="btn btn-dark" *ngIf="isLogged">Nueva Skill</button>
+    </div>
+
+
+    <div class="text-center col-sm-4 col-md-4 col-lg-4 circulo" *ngFor="let skill of skill">
         <circle-progress
-            [percent]="90"
+            [percent]="(skill.porcentaje)"
+            [showUnits]="false"
+            [showSubtitle]="false"
             [radius]="70"
-            [imageSrc]="'../assets/html5_logo.png'"
-            [showImage]="true"
+            [imageSrc]="''"
+            [titleColor]="'#213abc'"
+            [title]="(skill.nombre)"
+            [showTitle]="true"
+            [showImage]="false"
             [imageHeight]="80"
             [imageWidth]="80"
             [outerStrokeWidth]="10"
@@ -15,8 +25,20 @@
             [animation]="true"
             [animationDuration]="450"
         ></circle-progress>
+        <div class="botonera">
+            <td *ngIf="isLogged">
+                <button class="btn btn-light" routerLink="/editskill/{{skill.id}}"><i class="bi bi-pencil-fill"></i>
+                </button>
+            </td> 
+            <td *ngIf="isLogged" >
+                <button class="btn btn-danger" (click)="delete(skill.id)"><i class="bi bi-trash-fill"></i>
+                </button>
+            </td>
+        </div>
     </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
+
+ <!--  imagen del primer skill     [imageSrc]="'../assets/html5_logo.png'" -->   
+ <!--   <div class="text-center col-sm-4 col-md-4 col-lg-4">
         <circle-progress
             [percent]="75"
             [radius]="70"
@@ -95,5 +117,5 @@
             [animation]="true"
             [animationDuration]="450"
         ></circle-progress>
-    </div>
+    </div> -->
 </div>

@@ -2,12 +2,13 @@ export class persona{
     id?: number;
     nombre: string;
     apellido: string;
-    urlfoto: string;
+    descripcion: string;
+    url_foto: string;
 
-    constructor(nombre: string , apellido: string , urlfoto: string){
-       
+    constructor(nombre: string , apellido: string , descripcion:string , url_foto: string){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.urlfoto = urlfoto;
+        this.descripcion = descripcion;
+        this.url_foto = url_foto;
     }
 }

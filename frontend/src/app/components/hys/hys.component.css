@@ -7,3 +7,13 @@ div{
     background-color:rgb(170, 208, 247);
     
 }
+.circulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.botonera{
+    flex-direction: row;
+    align-items: center;
+}
