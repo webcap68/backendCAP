@@ -37,3 +37,4 @@ com\portfolio\cap\Security\jwt\JwtProvider.class
 com\portfolio\cap\Entity\Hys.class
 com\portfolio\cap\Security\Entity\Usuario.class
 com\portfolio\cap\Repository\IPersonaRepository.class
+com\portfolio\cap\WebConfig.class
