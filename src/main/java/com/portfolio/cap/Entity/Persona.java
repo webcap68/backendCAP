@@ -26,18 +26,21 @@ public class Persona {
     private String apellido;
     
      @NotNull
-   private String descripcion;
+     private String descripcion;
     
+  
+    private String email;
     
     private String url_foto;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String descripcion, String url_foto) {
+    public Persona(String nombre, String apellido, String descripcion, String email, String url_foto) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
+        this.email = email;
         this.url_foto = url_foto;
     }
 
@@ -73,6 +76,13 @@ public class Persona {
         this.descripcion = descripcion;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public String getUrl_foto() {
         return url_foto;
     }

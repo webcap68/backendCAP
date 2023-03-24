@@ -35,6 +35,10 @@ public class ImpPersonaService  {
         return ipersonaRepository.findByDescripcion(descripcion);
     }
     
+     public Optional<Persona> getByEmail(String email){
+        return ipersonaRepository.findByEmail(email);
+    }
+    
     public void save(Persona persona){
         ipersonaRepository.save(persona);
     }
@@ -57,5 +61,9 @@ public class ImpPersonaService  {
     
     public boolean existsByDescripcion(String  descripcion){
         return ipersonaRepository.existsByDescripcion(descripcion);
+    }
+    
+    public boolean existsByEmail(String  email){
+        return ipersonaRepository.existsByEmail(email);
     }
 }

@@ -14,15 +14,18 @@ public class dtoPersona {
     @NotBlank
     private String descripcion;
     @NotBlank
+    private String email;
+    @NotBlank
     private String url_foto;
 
     public dtoPersona() {
     }
 
-    public dtoPersona(String nombre, String apellido, String descripcion, String url_foto) {
+    public dtoPersona(String nombre, String apellido, String descripcion, String email, String url_foto) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
+        this.email = email;
         this.url_foto = url_foto;
     }
 
@@ -48,6 +51,14 @@ public class dtoPersona {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUrl_foto() {

@@ -108,12 +108,22 @@ public class PersonaController {
             return new ResponseEntity(new Mensaje("El campo apellido no debe estar vacio"), HttpStatus.BAD_REQUEST);
           }
          
+          //validaciones para email
+          if(personaService.existsByEmail(dtopersona.getEmail()) && personaService.getByEmail(dtopersona.getEmail()).get().getId() !=id){
+            return new ResponseEntity(new Mensaje("El email ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        
+         if(StringUtils.isBlank(dtopersona.getEmail())){
+            return new ResponseEntity(new Mensaje("El campo email no debe estar vacio"), HttpStatus.BAD_REQUEST);
+          }
+         
          //
          
          Persona persona = personaService.getOne(id).get();
          persona.setNombre(dtopersona.getNombre());
          persona.setApellido(dtopersona.getApellido());
          persona.setDescripcion(dtopersona.getDescripcion());
+         persona.setEmail(dtopersona.getEmail());
          persona.setUrl_foto(dtopersona.getUrl_foto());
          
          personaService.save(persona);

@@ -14,4 +14,6 @@ public interface IPersonaRepository extends JpaRepository<Persona ,Integer> {
     public boolean existsByApellido (String apellido) ;
     public Optional<Persona> findByDescripcion (String descripcion);
     public boolean existsByDescripcion (String descripcion) ;
+    public Optional<Persona> findByEmail (String email);
+    public boolean existsByEmail (String email) ;
 }
