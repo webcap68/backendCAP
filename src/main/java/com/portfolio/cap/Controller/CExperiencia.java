@@ -54,11 +54,11 @@ public class CExperiencia {
             return new ResponseEntity(new Mensaje ("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         
         //validacion por si ya existe el nombre de experiencia
-        if(sExperiencia.existsByNombreE(dtoexp.getNombreE()))
-            return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST );
+        //if(sExperiencia.existsByNombreE(dtoexp.getNombreE()))
+         //   return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST );
         
         //guardamos el objeto de experiencia nueva en la BD
-        Experiencia experiencia = new Experiencia(dtoexp.getNombreE(),dtoexp.getDescripcionE());
+        Experiencia experiencia = new Experiencia(dtoexp.getNombreE(),dtoexp.getDescripcionE(),dtoexp.getInicio(),dtoexp.getFin());
         sExperiencia.save(experiencia);
         
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
@@ -71,9 +71,10 @@ public class CExperiencia {
         if (!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje ("El ID no existe"), HttpStatus.BAD_REQUEST);
         //Compara nombre de experiencias
-        if(sExperiencia.existsByNombreE(dtoexp.getNombreE()) 
-                && sExperiencia.getByNombreE(dtoexp.getNombreE()).get().getId() != id)
-            return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+        //if(sExperiencia.existsByNombreE(dtoexp.getNombreE()) 
+        //        && sExperiencia.getByNombreE(dtoexp.getNombreE()).get().getId() != id)
+       //     return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+       
         //Validacion para chequear campo vacio
         if(StringUtils.isBlank(dtoexp.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -81,6 +82,8 @@ public class CExperiencia {
         Experiencia experiencia = sExperiencia.getOne(id).get();
         experiencia.setNombreE(dtoexp.getNombreE());
         experiencia.setDescripcionE(dtoexp.getDescripcionE());
+        experiencia.setInicio(dtoexp.getInicio());
+        experiencia.setFin(dtoexp.getFin());
         
         sExperiencia.save(experiencia);
         return new ResponseEntity (new Mensaje("Experiencia actualizada"), HttpStatus.OK);

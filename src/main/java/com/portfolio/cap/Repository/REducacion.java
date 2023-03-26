@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public interface REducacion  extends JpaRepository<Educacion, Integer>{
     public Optional<Educacion> findByNombreE (String nombreE);
     public boolean existsByNombreE (String nombreE) ;
-   //agregado para descripcion , hecho por mi
+   //agregado para descripcion 
     public Optional<Educacion> findByDescripcionE (String descripcionE);
     public boolean existsByDescripcionE (String descripcionE) ;
 }

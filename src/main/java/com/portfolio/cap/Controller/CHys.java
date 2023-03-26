@@ -70,9 +70,11 @@ public class CHys {
         if (!shys.existsById(id))
             return new ResponseEntity(new Mensaje ("El ID no existe"), HttpStatus.BAD_REQUEST);
         //Compara nombre de skills
-        if(shys.existsByNombre(dtohys.getNombre()) 
-                && shys.getByNombre(dtohys.getNombre()).get().getId() != id)
-            return new ResponseEntity(new Mensaje("El skill ya existe"), HttpStatus.BAD_REQUEST);
+        
+      //  if(shys.existsByNombre(dtohys.getNombre()) 
+       //         && shys.getByNombre(dtohys.getNombre()).get().getId() != id)
+       //     return new ResponseEntity(new Mensaje("El skill ya existe"), HttpStatus.BAD_REQUEST);
+       
         //Validacion para chequear campo vacio
         if(StringUtils.isBlank(dtohys.getNombre()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
