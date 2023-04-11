@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin (origins ={ "http://localhost:4200","https://frontendcap68.web.app"})
-@RequestMapping("/personas")
+@RequestMapping("/personas" )
 public class PersonaController {
    @Autowired ImpPersonaService personaService;
    
@@ -78,7 +78,12 @@ public class PersonaController {
     }
     */
     @PutMapping("/update/{id}")
+     
+		
+              
+	
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoPersona dtopersona ){
+         System.out.println("descripcion: " + dtopersona.getDescripcion());
         if(!personaService.existsById(id)){
             return new ResponseEntity(new Mensaje ("No existe el ID"), HttpStatus.NOT_FOUND);
         }
@@ -91,11 +96,11 @@ public class PersonaController {
           }
          
          //validaciones para descripcion
-         if(personaService.existsByDescripcion(dtopersona.getDescripcion()) && personaService.getByDescripcion(dtopersona.getDescripcion()).get().getId() !=id){
-            return new ResponseEntity(new Mensaje("La  descripcion ya existe"), HttpStatus.BAD_REQUEST);
+        if(personaService.existsByDescripcion(dtopersona.getDescripcion()) && personaService.getByDescripcion(dtopersona.getDescripcion()).get().getId() !=id){
+           return new ResponseEntity(new Mensaje("La  descripcion ya existe"), HttpStatus.BAD_REQUEST);
         }
         
-         if(StringUtils.isBlank(dtopersona.getDescripcion())){
+        if(StringUtils.isBlank(dtopersona.getDescripcion())){
             return new ResponseEntity(new Mensaje("El campo descripcion no debe estar vacio"), HttpStatus.BAD_REQUEST);
           }
          
@@ -118,15 +123,17 @@ public class PersonaController {
           }
          
          //
-         
+        
          Persona persona = personaService.getOne(id).get();
+         
+         persona.setDescripcion(dtopersona.getDescripcion());
          persona.setNombre(dtopersona.getNombre());
          persona.setApellido(dtopersona.getApellido());
-         persona.setDescripcion(dtopersona.getDescripcion());
          persona.setEmail(dtopersona.getEmail());
          persona.setUrl_foto(dtopersona.getUrl_foto());
-         
+  
          personaService.save(persona);
+         
          return new ResponseEntity(new Mensaje("Persona actualizada"), HttpStatus.OK);
     }
   }

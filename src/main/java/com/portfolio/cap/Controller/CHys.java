@@ -60,7 +60,7 @@ public class CHys {
         Hys hys = new Hys(dtohys.getNombre(),dtohys.getPorcentaje());
         shys.save(hys);
         
-        return new ResponseEntity(new Mensaje("Skill agregado a la base"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Skill agregado al portfolio"), HttpStatus.OK);
         
     }
     
@@ -71,9 +71,9 @@ public class CHys {
             return new ResponseEntity(new Mensaje ("El ID no existe"), HttpStatus.BAD_REQUEST);
         //Compara nombre de skills
         
-      //  if(shys.existsByNombre(dtohys.getNombre()) 
-       //         && shys.getByNombre(dtohys.getNombre()).get().getId() != id)
-       //     return new ResponseEntity(new Mensaje("El skill ya existe"), HttpStatus.BAD_REQUEST);
+        if(shys.existsByNombre(dtohys.getNombre()) 
+                && shys.getByNombre(dtohys.getNombre()).get().getId() != id)
+            return new ResponseEntity(new Mensaje("El skill ya existe"), HttpStatus.BAD_REQUEST);
        
         //Validacion para chequear campo vacio
         if(StringUtils.isBlank(dtohys.getNombre()))
@@ -97,7 +97,7 @@ public class CHys {
         if (!shys.existsById(id))
             return new ResponseEntity(new Mensaje ("El ID no existe"), HttpStatus.BAD_REQUEST);
         shys.delete(id);
-        return new ResponseEntity(new Mensaje("Skill eliminado"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Skill eliminada exitosamente"), HttpStatus.OK);
     }
     
 }

@@ -8,6 +8,7 @@ public class CapApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CapApplication.class, args);
+                
 	}
 
 }

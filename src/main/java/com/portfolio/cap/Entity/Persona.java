@@ -9,8 +9,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
-
-
 @Entity
 public class Persona {
     @Id
@@ -26,6 +24,7 @@ public class Persona {
     private String apellido;
     
      @NotNull
+     
      private String descripcion;
     
   
@@ -42,6 +41,7 @@ public class Persona {
         this.descripcion = descripcion;
         this.email = email;
         this.url_foto = url_foto;
+        
     }
 
     public int getId() {
